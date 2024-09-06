@@ -2,19 +2,17 @@ package br.edu.ifba.saj.ads.demo.model.polimorfismo;
 
 import jakarta.persistence.*;
 
-@Entity // Indica que esta classe é uma entidade JPA
+@Entity
 public class Conta {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // Define a chave primária
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private double saldo = 0;
 
-    // Construtor padrão exigido pelo JPA
     public Conta() {}
 
-    // Métodos da classe
     public void executarOperacao(Operacao opr) {
         saldo += opr.operar();
         // Aqui, as operações poderiam ser adicionadas às listas se necessário para fins de histórico
@@ -24,7 +22,6 @@ public class Conta {
         return saldo;
     }
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

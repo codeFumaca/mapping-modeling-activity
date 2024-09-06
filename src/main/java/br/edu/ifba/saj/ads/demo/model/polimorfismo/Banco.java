@@ -5,17 +5,17 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity // Indica que esta classe é uma entidade JPA
+@Entity
 public class Banco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Chave primária com geração automática
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true) // Relacionamento um-para-muitos com correntistas
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Correntista> correntistas;
 
-    @Basic // Esse atributo não será persistido no banco
+    @Basic
     private int qtdCorrentista;
 
     public Banco() {
@@ -23,7 +23,6 @@ public class Banco {
         this.qtdCorrentista = 0;
     }
 
-    // Métodos da classe
     public void addCorrentista(String nome) {
         correntistas.add(new Correntista(nome));
         qtdCorrentista++;
@@ -52,7 +51,6 @@ public class Banco {
         getCorrentista(nomeCorrentistaDestino).getConta().executarOperacao(t);
     }
 
-    // Getters e Setters
     public Integer getId() {
         return Math.toIntExact(id);
     }

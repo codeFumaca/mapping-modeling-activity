@@ -2,16 +2,16 @@ package br.edu.ifba.saj.ads.demo.model.polimorfismo;
 
 import jakarta.persistence.*;
 
-@Entity // Indica que esta classe é uma entidade JPA
+@Entity
 public class Correntista {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE) // Define a chave primária
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String nome;
 
-    @OneToOne(cascade = CascadeType.ALL) // Relacionamento um-para-um com Conta
+    @OneToOne(cascade = CascadeType.ALL)
     private Conta conta;
 
     // Construtor
@@ -20,10 +20,8 @@ public class Correntista {
         this.conta = new Conta();
     }
 
-    // Construtor padrão exigido pelo JPA
     public Correntista() {}
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }
