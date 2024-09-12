@@ -9,8 +9,8 @@ public class Revista extends Item implements Emprestavel {
     private int anoPublicacao;
 
     // Construtor com parâmetros
-    public Revista(String titulo, String autor, int ano, Biblioteca biblioteca, int edicao, int anoPublicacao) {
-        super(titulo, autor, ano, biblioteca);
+    public Revista(String titulo, String autor, int ano, int edicao, int anoPublicacao) {
+        super(titulo, autor, ano);
         this.edicao = edicao;
         this.anoPublicacao = anoPublicacao;
     }
@@ -18,16 +18,16 @@ public class Revista extends Item implements Emprestavel {
     // Construtor padrão exigido pelo JPA
     public Revista() {}
 
+
     @Override
     public void emprestar() {
-        this.biblioteca.removeItem(this);
-        this.biblioteca.addItemEmprestado(this);
+        this.emprestado = true;
     }
 
     @Override
     public void devolver() {
-        this.biblioteca.removeItemEmprestado(this);
-        this.biblioteca.addItem(this);
+        // validar se o item está emprestado
+        this.emprestado = false;
     }
 
     @Override

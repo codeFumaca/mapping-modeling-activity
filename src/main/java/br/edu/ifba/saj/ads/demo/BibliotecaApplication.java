@@ -19,24 +19,22 @@ public class BibliotecaApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Biblioteca biblioteca = new Biblioteca();
+        // Criação de objetos
+//        Livro livro = new Livro("O Senhor dos Anéis", "J. R. R. Tolkien", 2023, "123456789", 1000);
+//        Quadro quadro = new Quadro("Mona Lisa", "Leonardo da Vinci", 1503, "Renascimento");
+//        Revista revista = new Revista("Veja", "Abril", 2021,123, 1);
+//        DVD dvd = new DVD("Vingadores", "Marvel", 2012,"ação", 120);
 
-        Livro livro = new Livro("O Senhor dos Anéis", "J. R. R. Tolkien",biblioteca, 2023, "123456789", 1000);
-        Quadro quadro = new Quadro("Mona Lisa", "Leonardo da Vinci", 1503,biblioteca, "Renascimento");
-        Revista revista = new Revista("Veja", "Abril", 2021, biblioteca,123, 1);
-        DVD dvd = new DVD("Vingadores", "Marvel", 2012, biblioteca,"ação", 120);
+//        BibliotecaRepository.save(livro);
+//        BibliotecaRepository.save(quadro);
+//        BibliotecaRepository.save(revista);
+//        BibliotecaRepository.save(dvd);
 
-        biblioteca.addItem(livro);
-        biblioteca.addItem(quadro);
-        biblioteca.addItem(revista);
-        biblioteca.addItem(dvd);
+        // Procurar item por Autor
+//        BibliotecaRepository.findByAutor("J. K. Rowling").forEach(System.out::println);
+        // Procurar item por Título
+//        BibliotecaRepository.findByTitulo("Mona Lisa").forEach(System.out::println);
 
-        livro.emprestar();
-
-        BibliotecaRepository.save(biblioteca);
-
-        System.out.println("Lista de Bibliotecas:");
-        BibliotecaRepository.findAll().forEach(System.out::println);
     }
 
 }

@@ -8,8 +8,8 @@ public class Livro extends Item implements Emprestavel {
     private String ISBN;
     private int numPaginas;
 
-    public Livro(String titulo, String autor, Biblioteca biblioteca, int ano, String isbn, int numPaginas) {
-        super(titulo, autor, ano, biblioteca);
+    public Livro(String titulo, String autor, int ano, String isbn, int numPaginas) {
+        super(titulo, autor, ano);
         this.ISBN = isbn;
         this.numPaginas = numPaginas;
     }
@@ -18,14 +18,13 @@ public class Livro extends Item implements Emprestavel {
 
     @Override
     public void emprestar() {
-        this.biblioteca.addItemEmprestado(this);
-        this.biblioteca.removeItem(this);
+        this.emprestado = true;
     }
 
     @Override
     public void devolver() {
-        this.biblioteca.addItem(this);
-        this.biblioteca.removeItemEmprestado(this);
+        // validar se o item está emprestado
+        this.emprestado = false;
     }
 
     @Override

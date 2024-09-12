@@ -18,14 +18,13 @@ public abstract class Item implements Serializable {
 
     protected int ano;
 
-    @ManyToOne(fetch = FetchType.LAZY) // Relacionamento Many-to-One com a entidade Biblioteca// Define a chave estrangeira
-    protected Biblioteca biblioteca;
+    protected boolean emprestado;
 
-    public Item(String titulo, String autor, int ano, Biblioteca biblioteca) {
+    public Item(String titulo, String autor, int ano) {
         this.titulo = titulo;
         this.autor = autor;
         this.ano = ano;
-        this.biblioteca = biblioteca;
+        this.emprestado = false;
     }
 
     public Item() {}

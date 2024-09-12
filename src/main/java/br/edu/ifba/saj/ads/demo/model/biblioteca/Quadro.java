@@ -8,8 +8,8 @@ public class Quadro extends Item {
     private String estilo;
 
     // Construtor com parâmetros
-    public Quadro(String titulo, String autor, int ano, Biblioteca biblioteca, String estilo) {
-        super(titulo, autor, ano, biblioteca);
+    public Quadro(String titulo, String autor, int ano, String estilo) {
+        super(titulo, autor, ano);
         this.estilo = estilo;
     }
 

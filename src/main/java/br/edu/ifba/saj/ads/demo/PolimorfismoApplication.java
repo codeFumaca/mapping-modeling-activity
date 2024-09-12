@@ -19,25 +19,23 @@ public class PolimorfismoApplication implements CommandLineRunner {
     }
     @Override
     public void run(String... args) throws Exception {
-        Banco banco = new Banco();
-        banco.addCorrentista("João");
-        banco.addCorrentista("Maria");
-        banco.addCorrentista("José");
-
-        banco.creditar("João", 1000);
-        banco.creditar("Maria", 2000);
-        banco.creditar("José", 3000);
-
-        bancoRepository.save(banco);
-
-//         Exibindo todos os usuários
-        System.out.println("Lista de Correntista:");
-        bancoRepository.findAll().forEach(System.out::println);
-
-//         Realizando Operação
-        bancoRepository.findById(1).ifPresent(banco1 -> {
-            banco1.transferir("João", "Maria", 500);
-            bancoRepository.save(banco);
-        });
+//        Banco banco = new Banco();
+//        banco.addCorrentista("João");
+//        banco.addCorrentista("Maria");
+//        banco.addCorrentista("José");
+//
+//        banco.creditar("João", 1000);
+//        banco.creditar("Maria", 2000);
+//        banco.creditar("José", 3000);
+//
+//        bancoRepository.save(banco);
+//
+//        bancoRepository.findAll().forEach(System.out::println);
+//
+////         Realizando Operação
+//        bancoRepository.findById(1).ifPresent(banco1 -> {
+//            banco1.transferir("João", "Maria", 500);
+//            bancoRepository.save(banco);
+//        });
     }
 }

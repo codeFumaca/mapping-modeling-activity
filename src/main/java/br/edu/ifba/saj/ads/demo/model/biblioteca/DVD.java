@@ -9,8 +9,8 @@ public class DVD extends Item implements Emprestavel {
     private int duracao;
 
 
-    public DVD(String titulo, String autor, int ano, Biblioteca biblioteca, String genero, int duracao) {
-        super(titulo, autor, ano, biblioteca);
+    public DVD(String titulo, String autor, int ano, String genero, int duracao) {
+        super(titulo, autor, ano);
         this.genero = genero;
         this.duracao = duracao;
     }
@@ -19,14 +19,13 @@ public class DVD extends Item implements Emprestavel {
 
     @Override
     public void emprestar() {
-        this.biblioteca.removeItem(this);
-        this.biblioteca.addItemEmprestado(this);
+        this.emprestado = true;
     }
 
     @Override
     public void devolver() {
-        this.biblioteca.removeItemEmprestado(this);
-        this.biblioteca.addItem(this);
+        // validar se o item está emprestado
+        this.emprestado = false;
     }
 
     @Override
